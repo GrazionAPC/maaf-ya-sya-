@@ -1,4 +1,15 @@
 // LOADING
+// AMBIL NAMA DARI LINK
+let params = new URLSearchParams(window.location.search);
+let nama = params.get("nama");
+
+if(nama){
+  document.getElementById("title").innerText =
+    "Maafin Aku Ya " + nama ";
+
+  document.getElementById("text").innerText =
+    "Hai " + nama + " klik ini dulu yaa";
+}
 setTimeout(() => {
   document.getElementById("loading").style.display = "none";
   document.getElementById("main").style.display = "block";
@@ -8,8 +19,9 @@ setTimeout(() => {
 let texts = [
   "Aku tau aku salah",
   "Aku gak bermaksud gitu",
-  "Aku cuma pengen kita baikan lagi",
-  "Aku bahkan bikin ini buat kamu"
+  "Aku cuma pengen kita baik lagi",
+  "Aku kangen bercanda sama kamu",
+  "Aku bikin ini khusus buat kamu"
 ];
 
 let index = 0;
