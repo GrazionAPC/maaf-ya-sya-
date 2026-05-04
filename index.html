@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Maafin Aku Ya </title>
-  <link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maafin Aku</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container">
-  <h1>Maafin Aku Ya </h1>
+<!-- LOADING SCREEN -->
+<div id="loading">
+  <img src="loading.gif">
+  <p>Nailong lagi nyiapin sesuatu buat kamu... </p>
+</div>
+
+<!-- MAIN -->
+<div class="container" id="main" style="display:none;">
+  <h1>Maafin Aku Ya Syaa</h1>
 
   <img src="nailong.png" class="nailong">
 
-  <p id="text">
-    Aku minta maaf ya sya, salah ku nya kemaren
-  </p>
+  <p id="text">Klik dulu yaa</p>
 
-  <button onclick="nextText()">Klik aku dulu </button>
+  <button onclick="nextText()">Mulai</button>
+
+  <div id="game" style="display:none;">
+    <h2>Bikin Matcha buat Nailong 🍵</h2>
+    <img src="matcha.png" id="matcha" onclick="clickMatcha()">
+    <p id="progress">0%</p>
+  </div>
 
   <div class="choice" id="choice" style="display:none;">
-    <p>mau maafin aku gak? </p>
-    <button onclick="yes()">Iya </button>
-    <button onclick="no()" id="noBtn">Engga </button>
+    <p>Kamu mau maafin aku gak?</p>
+    <button onclick="yes()">Iya</button>
+    <button onclick="no()" id="noBtn">Engga</button>
   </div>
 </div>
 
