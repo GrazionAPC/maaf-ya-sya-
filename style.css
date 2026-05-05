@@ -17,6 +17,15 @@ body {
   margin: auto;
 }
 
+#loading button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #ff6600;
+  color: white;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
 .container {
   padding: 20px;
 }
@@ -42,8 +51,26 @@ button {
   font-size: 16px;
 }
 
+button:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
 #matcha {
   width: 120px;
+}
+
+#hearts span {
+  position: fixed;
+  top: -10px;
+  font-size: 20px;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
 }
 
 .choice {
