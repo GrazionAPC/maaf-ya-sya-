@@ -13,16 +13,20 @@ if(nama){
 
 /* MASUK (FIX MUSIK WAJIB CLICK) */
 window.masuk = function(){
+
   let sound = document.getElementById("loadingSound");
-  let bgm = document.getElementById("bgm");
 
+  // stop loading sound
   sound.pause();
+  sound.currentTime = 0;
 
-  bgm.play().catch(err => {
-    console.log("Musik diblok browser, tapi klik sudah benar");
-  });
-
+  // masuk ke main
   document.getElementById("loading").style.display = "none";
+  document.getElementById("main").style.display = "block";
+
+  // play music utama
+  let bgm = document.getElementById("bgm");
+  bgm.play().catch(()=>{});
 };
 
 /* TEXT */
