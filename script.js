@@ -5,7 +5,7 @@ let nama = params.get("nama");
 
 if (nama) {
   document.getElementById("title").innerText =
-    "Maafin Aku Ya " + nama + " 🥺";
+    "Maafin Aku Ya " + nama ";
 
   document.getElementById("text").innerText =
     "Hai " + nama + " 🧡 klik mulai ya...";
@@ -93,7 +93,7 @@ window.clickMatcha = function () {
 ========================= */
 window.yes = function () {
   let nomor = "628116502810"; // ganti kalau perlu
-  let text = "iya aku maafin 🧡";
+  let text = "iya aku maafin";
 
   window.location.href =
     "https://wa.me/" + nomor + "?text=" + encodeURIComponent(text);
@@ -115,7 +115,7 @@ window.no = function () {
   btn.style.top = Math.random() * 500 + "px";
   btn.style.left = Math.random() * 300 + "px";
 
-  btn.innerText = "Jangan dong 😭";
+  btn.innerText = "Jangan dong";
 };
 
 /* =========================
