@@ -10,10 +10,10 @@ body {
   width: 100%;
   height: 100vh;
   background: linear-gradient(90deg, orange 50%, white 50%);
-  background-size: 80px 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;   /* FIX CENTER */
   z-index: 9999;
 }
 
@@ -23,17 +23,21 @@ body {
 
 #loading button {
   padding: 12px 20px;
+  margin-top: 20px;
   background: #ff6600;
   color: white;
   border: none;
   border-radius: 12px;
   font-size: 16px;
+  z-index: 10000; /* FIX CLICK */
 }
 
-/* MAIN BACKGROUND STRAIGHT STRIPES */
+/* MAIN */
 .container {
   min-height: 100vh;
   padding: 20px;
+
+  /* STRIPE BACKGROUND */
   background: repeating-linear-gradient(
     90deg,
     orange,
@@ -41,18 +45,18 @@ body {
     white 25px,
     white 50px
   );
+
+  display: flex;          /* FIX CENTER */
+  flex-direction: column;
+  align-items: center;    /* FIX CENTER */
+  justify-content: center;
 }
 
-/* IMAGE */
+/* GAMBAR CENTER */
 .nailong {
   width: 260px;
-  animation: shake 1s infinite;
-}
-
-@keyframes shake {
-  0% { transform: rotate(0); }
-  50% { transform: rotate(4deg); }
-  100% { transform: rotate(-4deg); }
+  display: block;
+  margin: 0 auto;
 }
 
 /* BUTTON */
@@ -71,9 +75,9 @@ button {
   width: 80%;
   height: 25px;
   background: white;
-  margin: 20px auto;
   border-radius: 20px;
   overflow: hidden;
+  margin: 20px auto;
 }
 
 #bar {
@@ -91,5 +95,7 @@ button {
 }
 
 @keyframes fall {
-  to { transform: translateY(100vh); }
+  to {
+    transform: translateY(100vh);
+  }
 }
