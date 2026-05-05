@@ -109,3 +109,42 @@ button {
 img {
   pointer-events: none;
 }
+
+/* FIX TOTAL OVERLAY CLICK ISSUE */
+#loading {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(90deg, orange 50%, white 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+/* BOX BIAR ELEMENT TIDAK NUTUP BUTTON */
+.loadingBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  z-index: 100000;
+}
+
+.loadingBox img {
+  width: 180px;
+}
+
+.loadingBox button {
+  padding: 14px 24px;
+  background: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  z-index: 100001;
+}
+
+/* PENTING: MATIKAN SEMUA BLOCK CLICK */
+#loading, #loading * {
+  pointer-events: auto;
+}
