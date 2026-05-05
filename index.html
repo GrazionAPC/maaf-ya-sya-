@@ -2,21 +2,28 @@
 <html lang="id">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maafin Aku </title>
+<title>Maafin Aku Ya</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- LOADING -->
+<!-- LOADING -->
 <div id="loading">
   <div class="loadingBox">
+
     <img src="loading.gif" class="loadingGif">
+
     <p>Nailong lagi nyiapin sesuatu 🧡</p>
-    <button onclick="masuk()">Masuk 🧡</button>
+
+    <!-- JARAK DIPISAH BIAR AMAN -->
+    <div class="btnBox">
+      <button onclick="masuk()">Masuk 🧡</button>
+    </div>
+
   </div>
 </div>
-  
+
 <!-- MAIN -->
 <div class="container" id="main">
 
@@ -30,7 +37,7 @@
 
   <div id="game" style="display:none;">
     <h2>🍵 Game Matcha</h2>
-    <p>Klik bar hijau saat muncul!</p>
+    <p>Klik saat bar hijau muncul!</p>
 
     <div id="barArea">
       <div id="bar"></div>
