@@ -1,87 +1,102 @@
-:root {
-    --matcha: #8da15e;
-    --matcha-light: #b5c99a;
-    --primary: #ff7b00;
-}
-
 body {
-    margin: 0; font-family: 'Arial', sans-serif;
-    background-color: #fffcf2;
-    display: flex; justify-content: center; align-items: center;
-    min-height: 100vh; overflow: hidden;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
 }
 
 #layar-awal {
-    position: fixed; inset: 0; z-index: 1000;
-    background: linear-gradient(135deg, var(--primary), #fff);
-    display: flex; justify-content: center; align-items: center;
+    position: fixed;
+    inset: 0;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
 }
 
-.kartu {
-    background: white; padding: 30px; border-radius: 20px;
-    text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+.box {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
 }
-
-.img-small { width: 80px; }
 
 #konten-utama {
-    display: flex; flex-direction: column; align-items: center;
-    width: 100%; text-align: center; padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
-.img-nailong { width: 180px; margin-bottom: 20px; transition: 0.3s; }
+.img-nailong {
+    width: 150px;
+    margin-bottom: 20px;
+}
 
 button {
-    padding: 12px 25px; border: none; background: var(--primary);
-    color: white; border-radius: 50px; font-weight: bold;
-    cursor: pointer; transition: 0.2s; margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background: #4caf50;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
 }
 
-button:active { transform: scale(0.9); }
+button:hover {
+    background: #45a049;
+}
 
-/* GAME STYLES */
 #mangkuk-area {
-    width: 180px; height: 100px;
-    background: #5d4037; border-radius: 0 0 100px 100px;
-    position: relative; margin: 30px auto; cursor: pointer;
-    border: 5px solid #3e2723; overflow: hidden;
+    width: 150px;
+    height: 80px;
+    background: #795548;
+    border-radius: 0 0 80px 80px;
+    position: relative;
+    margin: 20px auto;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 #matcha-liquid {
-    position: absolute; bottom: 0; width: 100%;
-    height: 60%; background: var(--matcha);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background: #8da15e;
 }
 
 #matcha-foam {
-    position: absolute; bottom: 0; width: 100%;
-    height: 0%; background: var(--matcha-light);
-    opacity: 0.8; transition: height 0.3s;
-}
-
-#whisk {
-    position: absolute; top: -20px; left: 40%;
-    width: 50px; pointer-events: none; transition: 0.1s;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background: #b5c99a;
 }
 
 .progress-container {
-    width: 200px; height: 15px; background: #ddd;
-    border-radius: 10px; margin: 10px auto; overflow: hidden;
+    width: 200px;
+    height: 10px;
+    background: #eee;
+    border-radius: 5px;
+    margin: 10px auto;
 }
 
 #progress-bar {
-    width: 0%; height: 100%; background: var(--matcha);
+    width: 0%;
+    height: 100%;
+    background: #8da15e;
 }
 
-/* FINAL */
-.img-matcha { width: 220px; animation: pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-
-@keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
-
-.hati {
-    position: fixed; top: -20px; font-size: 20px;
-    animation: jatuh 4s linear forwards;
+.img-matcha {
+    width: 180px;
 }
 
-@keyframes jatuh { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
-
-#btn-engga { background: #d90429; }
+#btn-engga {
+    background: #f44336;
+}
