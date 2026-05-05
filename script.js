@@ -10,10 +10,12 @@ if(nama){
   document.getElementById("text").innerText =
     "Hai " + nama + " klik ini dulu yaa";
 }
-setTimeout(() => {
-  document.getElementById("loading").style.display = "none";
-  document.getElementById("main").style.display = "block";
-}, 3000);
+window.onload = function() {
+  setTimeout(() => {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("main").style.display = "block";
+  }, 3000);
+};
 
 // TEXT
 let texts = [
