@@ -3,54 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matcha Maker</title>
+    <title>Maafin Aku Ya.. 🧡</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="layar-awal">
-        <div class="box">
-            <p>Nailong sedang menyiapkan alat.</p>
-            <button id="btn-masuk">Bantu Nailong</button>
+        <div class="kartu-awal">
+            <img src="https://media.tenor.com/tE_7u8v-H0YAAAAi/nailong-milk-tea.gif" alt="Loading" class="img-loading">
+            <p>Nailong sudah siap! ✨</p>
+            <button id="btn-masuk">Masuk 🧡</button>
         </div>
     </div>
 
     <div id="konten-utama" style="display: none;">
-        <h1 id="judul">Maaf</h1>
+        <h1 id="judul">Maafin Aku Ya.. 🥺</h1>
+        <img src="nailong.png" class="gambar-nailong" alt="Nailong">
+        <p id="pesan-teks">Klik tombol di bawah ini...</p>
         
-        <div id="cerita-wrapper">
-            <img src="nailong.png" class="img-nailong">
-            <p id="teks-cerita">Aku ingin membuatkan sesuatu untukmu.</p>
-            <button id="btn-lanjut">Apa itu?</button>
-        </div>
+        <button id="btn-lanjut">Mulai 😖</button>
 
-        <div id="seksi-game" style="display: none;">
-            <h3>Aduk matcha sampai berbusa</h3>
-            <p>Klik mangkuk dengan cepat</p>
-            
-            <div id="mangkuk-area">
-                <div id="matcha-liquid"></div>
-                <div id="matcha-foam"></div>
+        <div class="area-game" id="seksi-game" style="display: none;">
+            <p>Ayo aduk matchanya sampai berbusa! 🍵</p>
+            <div id="mangkuk-matcha">
+                <div id="air-matcha"></div>
+                <img src="https://cdn-icons-png.flaticon.com/512/5029/5029198.png" id="pengaduk" alt="Whisk">
             </div>
-
-            <div class="progress-container">
-                <div id="progress-bar"></div>
-            </div>
-            <p>Proses: <span id="persen">0</span>%</p>
+            <p id="info-skor">Tingkat Aduk: 0%</p>
         </div>
 
         <div id="seksi-akhir" style="display: none;">
-            <img src="matcha.png" class="img-matcha">
-            <h2>Matcha untuk kamu</h2>
-            <p>Apakah kamu mau memaafkanku?</p>
+            <p class="teks-akhir">Mau maafin aku kan? 🥺</p>
             <div class="btn-group">
-                <button id="btn-iya">Iya</button>
-                <button id="btn-engga">Tidak</button>
+                <button id="btn-iya">Iya, Maafin 💖</button>
+                <button id="btn-engga">Engga! 😡</button>
             </div>
         </div>
     </div>
 
     <audio id="musik" src="sound.mp3" loop></audio>
+    <div id="wadah-hati"></div>
 
     <script src="script.js"></script>
 </body>
