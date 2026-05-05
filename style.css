@@ -7,29 +7,31 @@ body {
 /* LOADING */
 #loading {
   position: fixed;
-  width: 100%;
-  height: 100vh;
+  inset: 0;
   background: linear-gradient(90deg, orange 50%, white 50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;   /* FIX CENTER */
-  z-index: 9999;
+  align-items: center;
+  z-index: 99999;
 }
 
-#loading img {
-  width: 200px;
+/* PENTING: pastikan semua bisa diklik */
+#loading * {
+  pointer-events: auto;
 }
 
 #loading button {
-  padding: 12px 20px;
   margin-top: 20px;
+  padding: 14px 24px;
   background: #ff6600;
   color: white;
   border: none;
   border-radius: 12px;
   font-size: 16px;
-  z-index: 10000; /* FIX CLICK */
+
+  position: relative;
+  z-index: 100000;
 }
 
 /* MAIN */
@@ -98,4 +100,12 @@ button {
   to {
     transform: translateY(100vh);
   }
+}
+
+button {
+  pointer-events: auto;
+}
+
+img {
+  pointer-events: none;
 }
