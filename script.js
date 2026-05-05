@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Ambil nama dari URL (Contoh: index.html?nama=Nathasya)
     const urlParams = new URLSearchParams(window.location.search);
-    const namaUser = urlParams.get('nama') || "Cantik";
-    judul.innerText = `Maafin Aku Ya, ${namaUser} 🥺`;
+    const namaUser = urlParams.get('nama') || "tasya";
+    judul.innerText = `Maafin Aku Ya, ${namaUser} `;
 
     // 1. Fungsi Tombol Masuk
     btnMasuk.onclick = () => {
@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Konten Cerita
     let step = 0;
     const cerita = [
-        "Aku sadar aku salah banget.. 😔",
-        "Gak ada niat buat bikin kamu sedih..",
-        "Maafin aku ya, janji gak ulangi lagi 🧡",
-        "Sebagai tanda maaf, aku buatin sesuatu..",
-        "Bantu aku aduk Matchanya yuk! 🍵"
+        "Aku tau aku salah, aku minta maaf ya",
+        "Aku gak ada niat buat bikin kamu marah",
+        "Maafin aku ya, aku janji gak ulangi lagi",
+        "Sebagai tanda maaf, aku buatin sesuatu",
+        "Bantu aku aduk Matchanya dulu ya 🍵"
     ];
 
     btnLanjut.onclick = () => {
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Tombol Akhir (WA)
     document.getElementById('btn-iya').onclick = () => {
-        const pesanWA = `Iya aku maafin kamu kok 🧡 Matchanya enak!`;
+        const pesanWA = `Iya aku maafin kamu kok, makasih ya Matchanya enak!`;
         window.location.href = `https://wa.me/628116502810?text=${encodeURIComponent(pesanWA)}`;
     };
 
