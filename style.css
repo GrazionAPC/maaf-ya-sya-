@@ -1,98 +1,87 @@
 :root {
-    --warna-utama: #ff7b00;
-    --warna-bg: #fffcf2;
+    --matcha: #8da15e;
+    --matcha-light: #b5c99a;
+    --primary: #ff7b00;
 }
 
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--warna-bg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow-x: hidden;
+    margin: 0; font-family: 'Arial', sans-serif;
+    background-color: #fffcf2;
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; overflow: hidden;
 }
 
 #layar-awal {
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(135deg, var(--warna-utama), #ffffff);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+    position: fixed; inset: 0; z-index: 1000;
+    background: linear-gradient(135deg, var(--primary), #fff);
+    display: flex; justify-content: center; align-items: center;
 }
 
-.kartu-awal {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    width: 80%;
-    max-width: 300px;
+.kartu {
+    background: white; padding: 30px; border-radius: 20px;
+    text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-.img-loading { width: 80px; margin-bottom: 10px; }
+.img-small { width: 80px; }
 
 #konten-utama {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
-    text-align: center;
+    display: flex; flex-direction: column; align-items: center;
+    width: 100%; text-align: center; padding: 20px;
 }
 
-.gambar-nailong {
-    width: 200px;
-    margin: 20px 0;
-    animation: apung 3s ease-in-out infinite;
-}
-
-@keyframes apung {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
+.img-nailong { width: 180px; margin-bottom: 20px; transition: 0.3s; }
 
 button {
-    padding: 12px 25px;
-    border: none;
-    background: var(--warna-utama);
-    color: white;
-    border-radius: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    margin: 5px;
+    padding: 12px 25px; border: none; background: var(--primary);
+    color: white; border-radius: 50px; font-weight: bold;
+    cursor: pointer; transition: 0.2s; margin-top: 10px;
 }
 
 button:active { transform: scale(0.9); }
 
-.area-game { width: 100%; max-width: 250px; margin-top: 20px; }
-
-.progress-bg {
-    width: 100%;
-    height: 25px;
-    background: #ddd;
-    border-radius: 15px;
-    overflow: hidden;
-    cursor: pointer;
-    border: 2px solid #333;
+/* GAME STYLES */
+#mangkuk-area {
+    width: 180px; height: 100px;
+    background: #5d4037; border-radius: 0 0 100px 100px;
+    position: relative; margin: 30px auto; cursor: pointer;
+    border: 5px solid #3e2723; overflow: hidden;
 }
 
-#progress-bar { width: 0%; height: 100%; background: #ff4d4d; }
+#matcha-liquid {
+    position: absolute; bottom: 0; width: 100%;
+    height: 60%; background: var(--matcha);
+}
+
+#matcha-foam {
+    position: absolute; bottom: 0; width: 100%;
+    height: 0%; background: var(--matcha-light);
+    opacity: 0.8; transition: height 0.3s;
+}
+
+#whisk {
+    position: absolute; top: -20px; left: 40%;
+    width: 50px; pointer-events: none; transition: 0.1s;
+}
+
+.progress-container {
+    width: 200px; height: 15px; background: #ddd;
+    border-radius: 10px; margin: 10px auto; overflow: hidden;
+}
+
+#progress-bar {
+    width: 0%; height: 100%; background: var(--matcha);
+}
+
+/* FINAL */
+.img-matcha { width: 220px; animation: pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+@keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
 
 .hati {
-    position: fixed;
-    top: -20px;
-    font-size: 20px;
+    position: fixed; top: -20px; font-size: 20px;
     animation: jatuh 4s linear forwards;
-    z-index: 500;
 }
 
-@keyframes jatuh {
-    to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-}
+@keyframes jatuh { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
 
-#btn-engga { background-color: #d90429; }
+#btn-engga { background: #d90429; }
