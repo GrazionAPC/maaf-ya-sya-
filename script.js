@@ -1,3 +1,25 @@
+/* TARUH DI PALING ATAS SCRIPT.JS */
+
+window.masuk = function() {
+    console.log("Tombol ditekan!"); // Cek di console (F12)
+    const loading = document.getElementById("loading");
+    const main = document.getElementById("main");
+    
+    if (loading && main) {
+        loading.style.setProperty("display", "none", "important");
+        main.style.setProperty("display", "flex", "important");
+        
+        // Putar musik jika ada
+        let sfx = document.getElementById("sound");
+        if (sfx) sfx.play().catch(() => {});
+    }
+};
+
+/* SISANYA BARU DI DALAM DOMCONTENTLOADED */
+document.addEventListener("DOMContentLoaded", function () {
+    // ... kode yang lain (nama, game, heart, dll)
+});
+
 /* 1. FUNGSI GLOBAL (Agar bisa dipanggil onclick dari HTML) */
 window.masuk = function() {
     document.getElementById("loading").style.display = "none";
