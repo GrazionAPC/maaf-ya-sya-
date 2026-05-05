@@ -1,62 +1,52 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maafin Aku Ya</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maafin Aku Ya</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- LOADING -->
-<div id="loading">
-  <div class="loadingBox">
-
-    <img src="loading.gif" class="loadingGif">
-
-    <p>Nailong lagi nyiapin sesuatu </p>
-
-    <button onclick="masuk()">Masuk </button>
-
-  </div>
-</div>
-
-<!-- MAIN -->
-<div class="container" id="main">
-
-  <h1 id="title">Maafin Aku </h1>
-
-  <img src="nailong.png" class="nailong">
-
-  <p id="text">Klik mulai ya </p>
-
-  <button onclick="nextText()">Mulai </button>
-
-  <div id="game" style="display:none;">
-    <h2>🍵 Game Matcha</h2>
-    <p>Klik saat hijau muncul!</p>
-
-    <div id="barArea">
-      <div id="bar"></div>
+    <div id="loading">
+        <div class="loadingBox">
+            <img src="loading.gif" alt="Loading..." class="loadingGif">
+            <p>Nailong lagi nyiapin sesuatu 🧡</p>
+            <button onclick="masuk()">Masuk 🧡</button>
+        </div>
     </div>
 
-    <p id="score">Score: 0</p>
-  </div>
+    <div class="container" id="main" style="display:none;">
+        <h1 id="title">Maafin Aku </h1>
+        
+        <div class="content-wrapper">
+            <img src="nailong.png" alt="Nailong" class="nailong">
+            <p id="text">Klik mulai ya 🧡</p>
+            <button id="btnMulai" onclick="nextText()">Mulai </button>
+        </div>
 
-  <div id="choice" style="display:none;">
-    <p>Kamu mau maafin aku? </p>
+        <div id="game" style="display:none;">
+            <hr>
+            <h2>🍵 Game Matcha</h2>
+            <p>Klik saat bar menjadi <span style="color: green; font-weight: bold;">HIJAU!</span></p>
+            <div id="barArea">
+                <div id="bar"></div>
+            </div>
+            <p id="score">Score: 0</p>
+        </div>
 
-    <button onclick="yes()">Iya </button>
-    <button onclick="no()" id="noBtn">Engga </button>
-  </div>
+        <div id="choice" style="display:none;">
+            <p class="final-text">Kamu mau maafin aku? </p>
+            <div class="btn-group">
+                <button onclick="yes()" class="btn-yes">Iya </button>
+                <button onclick="no()" id="noBtn" class="btn-no">Engga </button>
+            </div>
+        </div>
+    </div>
 
-</div>
+    <div id="hearts"></div>
+    <audio id="sound" src="sound.mp3"></audio>
 
-<div id="hearts"></div>
-
-<!-- HANYA INI YANG DIPERTAHANKAN -->
-<audio id="sound" src="sound.mp3"></audio>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
