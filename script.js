@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
 
-// NAMA DARI URL
 let params = new URLSearchParams(window.location.search);
 let nama = params.get("nama");
 
@@ -9,25 +8,30 @@ if(nama){
     "Maafin Aku Ya " + nama ";
 
   document.getElementById("text").innerText =
-    "Hai " + nama + " 🧡 klik mulai ya...";
+    "Hai Kak " + nama + " klik mulai ya...";
 }
 
-// MASUK
+/* MASUK (FIX MUSIK WAJIB CLICK) */
 window.masuk = function(){
-  document.getElementById("loadingSound").pause();
-  document.getElementById("bgm").play();
+  let sound = document.getElementById("loadingSound");
+  let bgm = document.getElementById("bgm");
+
+  sound.pause();
+
+  bgm.play().catch(err => {
+    console.log("Musik diblok browser, tapi klik sudah benar");
+  });
 
   document.getElementById("loading").style.display = "none";
-  document.getElementById("main").style.display = "block";
 };
 
-// STORY TEXT
+/* TEXT */
 let texts = [
-  "Aku tau aku salah ",
+  "Aku salah, aku minta maaf ya ",
   "Aku gak bermaksud gitu",
   "Aku cuma pengen kita baikan lagi ",
-  "Aku kangen ngobrol becanda dan main sama kamu ",
-  "Aku bikin ini khusus buat kamu "
+  "Aku kangen ngobrol, becanda, dan main sama kamu ",
+  "Aku bikin ini khusus buat minta maaf "
 ];
 
 let i = 0;
@@ -39,27 +43,21 @@ window.nextText = function(){
 
   if(i >= texts.length){
     document.getElementById("game").style.display = "block";
-    startGame();
   }
 };
 
-// ULTIMATE GAME (TIMING CHALLENGE)
+/* GAME SIMPLE FIXED */
 let score = 0;
 let active = false;
 
-function startGame(){
-  setInterval(() => {
-    let bar = document.getElementById("bar");
-    let width = Math.floor(Math.random() * 100);
+setInterval(() => {
+  let bar = document.getElementById("bar");
+  let val = Math.floor(Math.random() * 100);
+  bar.style.width = val + "%";
+  active = true;
 
-    bar.style.width = width + "%";
-    active = true;
-
-    setTimeout(() => {
-      active = false;
-    }, 700);
-  }, 1200);
-}
+  setTimeout(() => active = false, 600);
+}, 1200);
 
 document.getElementById("barArea").onclick = function(){
   if(active){
@@ -68,41 +66,34 @@ document.getElementById("barArea").onclick = function(){
 
     if(score >= 100){
       document.getElementById("choice").style.display = "block";
-      alert("Matcha berhasil dibuat sempurna 🧡");
+      alert("Matcha selesai 🧡");
     }
-  } else {
-    score -= 5;
-    if(score < 0) score = 0;
-    document.getElementById("score").innerText = "Score: " + score;
   }
 };
 
-// YES
+/* YES */
 window.yes = function(){
   let nomor = "628116502810";
-  let text = "iya aku maafin ";
   window.location.href =
-    "https://wa.me/" + nomor + "?text=" + encodeURIComponent(text);
+    "https://wa.me/" + nomor + "?text=iya%20aku%20maafin%20🧡";
 };
 
-// NO (LUCU + SUSAH DIKLIK)
+/* NO */
 let size = 1;
 
 window.no = function(){
   let btn = document.getElementById("noBtn");
 
-  size -= 0.2;
-  if(size < 0.2) size = 0.2;
+  size -= 0.15;
+  if(size < 0.3) size = 0.3;
 
   btn.style.transform = "scale(" + size + ")";
   btn.style.position = "absolute";
   btn.style.top = Math.random() * 500 + "px";
   btn.style.left = Math.random() * 300 + "px";
-
-  btn.innerText = "Jangan gitu ";
 };
 
-// HEARTS
+/* HEARTS */
 setInterval(() => {
   let h = document.createElement("span");
   h.innerHTML = "🧡";
