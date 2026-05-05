@@ -12,7 +12,12 @@ if(nama){
 
 // TOMBOL MASUK
 function masuk(){
-  document.getElementById("bgm").play();
+  let audio = document.getElementById("bgm");
+
+  audio.play().catch(() => {
+    console.log("Autoplay diblok, tapi harusnya jalan setelah klik");
+  });
+
   document.getElementById("loading").style.display = "none";
   document.getElementById("main").style.display = "block";
 }
