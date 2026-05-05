@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maafin Aku </title>
+<title>Nailong Maafin Aku </title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,13 +11,11 @@
 <!-- LOADING -->
 <div id="loading">
   <img src="loading.gif">
-  <h2>Nailong lagi nyiapin sesuatu... 🧡</h2>
-  <p>Jangan marah ya </p>
-
+  <p id="loadText">Nailong lagi nyiapin sesuatu buat kamu 🧡</p>
   <button onclick="masuk()">Masuk 🧡</button>
 
-  <!-- KICAU MANIA (LOADING SOUND) -->
-  <audio id="loadingSound" src="backsound.mp3" loop></audio>
+  <!-- SOUND LOADING (KICAU MANIA) -->
+  <audio id="loadingSound" src="backsound.mp3" autoplay loop></audio>
 </div>
 
 <!-- MAIN -->
@@ -27,38 +25,36 @@
 
   <img src="nailong.png" class="nailong">
 
-  <p id="text">Klik untuk lanjut 🧡</p>
+  <p id="text">Klik mulai ya 🧡</p>
 
   <button onclick="nextText()">Mulai </button>
 
   <!-- GAME -->
   <div id="game" style="display:none;">
-    <h2>🍵 MATCHA CHALLENGE</h2>
+    <h2>🍵 Mini Game: Bikin Matcha Untuk Nailong</h2>
+    <p>⚡ Klik cepat saat bar hijau muncul!</p>
 
-    <p>👉 Klik cepat sampai matcha penuh!</p>
-
-    <div id="bar">
-      <div id="fill"></div>
+    <div id="barArea">
+      <div id="bar"></div>
     </div>
 
-    <img src="matcha.png" id="matcha" onclick="clickMatcha()">
-
-    <p id="progress">0%</p>
+    <p id="score">Score: 0</p>
   </div>
 
   <!-- CHOICE -->
-  <div class="choice" id="choice" style="display:none;">
-    <p>Kamu mau maafin aku gak? </p>
-    <button onclick="yes()">Iya 💖</button>
-    <button onclick="no()" id="noBtn">Engga 😡</button>
+  <div id="choice" style="display:none;">
+    <p id="finalText">Kamu mau maafin aku gak? </p>
+
+    <button onclick="yes()">Iya </button>
+    <button onclick="no()" id="noBtn">Engga </button>
   </div>
 
 </div>
 
 <div id="hearts"></div>
 
-<audio id="sound" src="sound.mp3"></audio>
 <audio id="bgm" src="music.mp3" loop></audio>
+<audio id="sound" src="sound.mp3"></audio>
 
 <script src="script.js"></script>
 </body>
