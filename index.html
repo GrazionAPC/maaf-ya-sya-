@@ -3,36 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maafin Aku Ya</title>
+    <title>Matcha Buat Kamu 🍵</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="layar-awal">
-        <div class="kartu-awal">
-            <img src="loading.gif" alt="" class="img-loading">
-            <p>Nailong sudah siap! ✨</p>
-            <button id="btn-masuk">Masuk 🧡</button>
+        <div class="kartu">
+            <img src="loading.gif" alt="" class="img-small">
+            <p>Nailong lagi siapin alat masak... 💡</p>
+            <button id="btn-masuk">Bantu Nailong 🧡</button>
         </div>
     </div>
 
     <div id="konten-utama" style="display: none;">
-        <h1 id="judul">Maafin Aku </h1>
-        <img src="nailong.png" class="gambar-nailong" alt="Nailong">
-        <p id="pesan-teks">Klik tombol di bawah ini...</p>
+        <h1 id="judul">Maafin Aku Ya.. </h1>
         
-        <button id="btn-lanjut">Mulai </button>
+        <div id="cerita-wrapper">
+            <img src="nailong.png" class="img-nailong" id="nailong-img">
+            <p id="teks-cerita">Aku mau buatin sesuatu buat kamu sebagai permintaan maaf.. </p>
+            <button id="btn-lanjut">Apa itu? ✨</button>
+        </div>
 
-        <div class="area-game" id="seksi-game" style="display: none;">
-            <p>Klik saat warna jadi <b>HIJAU!</b></p>
-            <div class="progress-bg" id="klik-area">
+        <div id="seksi-game" style="display: none;">
+            <h3>Aduk Matchanya sampai berbusa! 🍵</h3>
+            <p>Klik mangkuk secepat mungkin!</p>
+            
+            <div id="mangkuk-area">
+                <div id="matcha-liquid"></div>
+                <div id="matcha-foam"></div>
+                <img src="https://cdn-icons-png.flaticon.com/512/3141/3141491.png" id="whisk" alt="whisk">
+            </div>
+
+            <div class="progress-container">
                 <div id="progress-bar"></div>
             </div>
-            <p id="info-skor">Skor: 0</p>
+            <p>Froth Level: <span id="persen">0</span>%</p>
         </div>
 
         <div id="seksi-akhir" style="display: none;">
-            <p class="teks-akhir">Mau maafin aku kan? </p>
+            <img src="matcha.png" class="img-matcha">
+            <h2>Matcha spesial untuk kamu! 🍵✨</h2>
+            <p>Kamu sudah maafin aku kan? </p>
             <div class="btn-group">
                 <button id="btn-iya">Iya, Maafin </button>
                 <button id="btn-engga">Engga! </button>
