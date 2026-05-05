@@ -11,37 +11,48 @@
 <!-- LOADING -->
 <div id="loading">
   <img src="loading.gif">
-  <p>Nailong lagi nyiapin sesuatu buat kamu </p>
+  <h2>Nailong lagi nyiapin sesuatu... 🧡</h2>
+  <p>Jangan marah ya </p>
+
   <button onclick="masuk()">Masuk 🧡</button>
 
-  <!-- SOUND LOADING -->
-  <audio id="loadingSound" src="backsound.mp3" autoplay loop></audio>
+  <!-- KICAU MANIA (LOADING SOUND) -->
+  <audio id="loadingSound" src="backsound.mp3" loop></audio>
 </div>
 
 <!-- MAIN -->
 <div class="container" id="main" style="display:none;">
+
   <h1 id="title">Maafin Aku Ya </h1>
 
   <img src="nailong.png" class="nailong">
 
-  <p id="text">Klik dulu yaa </p>
+  <p id="text">Klik untuk lanjut 🧡</p>
 
   <button onclick="nextText()">Mulai </button>
 
   <!-- GAME -->
   <div id="game" style="display:none;">
-    <h2>Bikin Matcha buat Nailong 🍵</h2>
-    <p>👉 Klik gambar matcha sampai penuh 100%!</p>
+    <h2>🍵 MATCHA CHALLENGE</h2>
+
+    <p>👉 Klik cepat sampai matcha penuh!</p>
+
+    <div id="bar">
+      <div id="fill"></div>
+    </div>
+
     <img src="matcha.png" id="matcha" onclick="clickMatcha()">
+
     <p id="progress">0%</p>
   </div>
 
-  <!-- PILIHAN -->
+  <!-- CHOICE -->
   <div class="choice" id="choice" style="display:none;">
     <p>Kamu mau maafin aku gak? </p>
-    <button onclick="yes()">Iya </button>
-    <button onclick="no()" id="noBtn">Engga </button>
+    <button onclick="yes()">Iya 💖</button>
+    <button onclick="no()" id="noBtn">Engga 😡</button>
   </div>
+
 </div>
 
 <div id="hearts"></div>
