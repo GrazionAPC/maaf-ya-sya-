@@ -76,3 +76,15 @@ button:hover {
 .choice {
   margin-top: 20px;
 }
+#loading {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(orange, white);
+  z-index: 9999;
+}
+
+#loading button {
+  z-index: 10000;
+  position: relative;
+}
