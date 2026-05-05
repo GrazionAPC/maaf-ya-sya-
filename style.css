@@ -10,28 +10,41 @@ body {
   inset: 0;
   background: linear-gradient(90deg, orange 50%, white 50%);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 99999;
 }
 
-/* PENTING: pastikan semua bisa diklik */
-#loading * {
-  pointer-events: auto;
+/* BOX AMAN */
+.loadingBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  z-index: 100000;
 }
 
-#loading button {
-  margin-top: 20px;
+/* KECILKAN GIF BIAR TIDAK NUTUP BUTTON */
+.loadingGif {
+  width: 120px;   /* ini yang bikin aman */
+  pointer-events: none;
+}
+
+/* BUTTON HARUS PASTI KENA CLICK */
+.loadingBox button {
   padding: 14px 24px;
   background: #ff6600;
   color: white;
   border: none;
   border-radius: 12px;
   font-size: 16px;
+  z-index: 100001;
+  pointer-events: auto;
+}
 
-  position: relative;
-  z-index: 100000;
+/* PENTING: JANGAN ADA YANG BLOCK CLICK */
+#loading, #loading * {
+  pointer-events: auto;
 }
 
 /* MAIN */
