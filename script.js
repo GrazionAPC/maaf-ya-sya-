@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ambil nama dari URL
     const urlParams = new URLSearchParams(window.location.search);
     const namaUser = urlParams.get('nama') || "Nathasya";
-    judul.innerText = `Maafin Aku Ya, ${namaUser} 🥺`;
+    judul.innerText = `Maafin Aku Ya, ${namaUser} `;
 
     // 1. Fungsi Tombol Masuk
     btnMasuk.onclick = () => {
@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Konten Cerita
     let step = 0;
     const cerita = [
-        "Aku sadar aku salah banget.. 😔",
-        "Gak ada niat buat bikin kamu sedih..",
-        "Maafin aku ya, janji gak ulangi lagi 🧡",
+        "Aku sadar aku salah ",
+        "Gak ada niat buat bikin kamu sedih",
+        "Maafin aku ya, janji gak ulangi lagi ",
         "Main game bentar yuk buat buktiin!"
     ];
 
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Tombol Akhir
     document.getElementById('btn-iya').onclick = () => {
-        window.location.href = `https://wa.me/628116502810?text=Iya aku maafin kamu, ${namaUser} 🧡`;
+        window.location.href = `https://wa.me/628116502810?text=Iya aku maafin kamu, ${namaUser} `;
     };
 
     const btnNo = document.getElementById('btn-engga');
