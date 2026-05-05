@@ -69,24 +69,89 @@ button {
     cursor: pointer;
     transition: 0.3s;
     margin: 5px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: :root {
+    --warna-utama: #ff7b00;
+    --warna-matcha: #91ac5d;
+    --warna-bg: #fffcf2;
 }
 
-button:active { transform: scale(0.9); }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--warna-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
 
-/* Game Matcha Styling */
-.area-game { width: 100%; margin-top: 20px; }
+#layar-awal {
+    position: fixed;
+    inset: 0;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.kartu-awal {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 80%;
+    max-width: 300px;
+}
+
+.img-loading { width: 80px; margin-bottom: 15px; }
+
+#konten-utama {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+}
+
+.gambar-nailong {
+    width: 160px;
+    margin: 20px 0;
+    animation: apung 3s ease-in-out infinite;
+}
+
+@keyframes apung {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: var(--warna-utama);
+    color: white;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+    margin: 5px;
+}
+
+button:active { transform: scale(0.95); }
 
 #mangkuk-matcha {
-    width: 150px;
-    height: 100px;
+    width: 140px;
+    height: 90px;
     background: #5d4037;
-    border-radius: 10px 10px 60px 60px;
+    border-radius: 10px 10px 50px 50px;
     margin: 20px auto;
     position: relative;
     overflow: hidden;
-    border: 4px solid #3e2723;
-    cursor: pointer;
+    border: 3px solid #3e2723;
 }
 
 #air-matcha {
@@ -95,11 +160,11 @@ button:active { transform: scale(0.9); }
     width: 100%;
     height: 10%;
     background-color: var(--warna-matcha);
-    transition: height 0.3s ease, background-color 0.5s;
+    transition: height 0.3s ease;
 }
 
 #pengaduk {
-    width: 50px;
+    width: 45px;
     position: absolute;
     top: 10px;
     left: 50%;
@@ -107,27 +172,24 @@ button:active { transform: scale(0.9); }
     pointer-events: none;
 }
 
-.kocok {
-    animation: gerakAduk 0.1s infinite;
-}
+.kocok { animation: gerakAduk 0.1s infinite; }
 
 @keyframes gerakAduk {
-    0% { transform: translateX(-55%) rotate(-5deg); }
-    50% { transform: translateX(-45%) rotate(5deg); }
-    100% { transform: translateX(-55%) rotate(-5deg); }
+    0%, 100% { transform: translateX(-55%) rotate(-3deg); }
+    50% { transform: translateX(-45%) rotate(3deg); }
 }
 
-/* Hati Falling Animation */
 .hati {
     position: fixed;
     top: -20px;
-    font-size: 20px;
+    font-size: 18px;
     animation: jatuh 4s linear forwards;
-    z-index: 5;
+    z-index: -1;
+    opacity: 0.6;
 }
 
 @keyframes jatuh {
-    to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    to { transform: translateY(110vh); opacity: 0; }
 }
 
-#btn-engga { background-color: #d90429; }
+#btn-engga { background-color: #6c757d; }
