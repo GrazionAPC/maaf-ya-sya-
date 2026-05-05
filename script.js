@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let step = 0;
     const cerita = [
-        "Aku minta maaf ya Kak atas kesalahanku kemarin.",
-        "Nggak ada maksud buat bikin Kakak nggak nyaman.",
-        "Semoga Kakak mau maafin aku.",
-        "Sebagai tanda maaf, aku buatkan matcha buat Kakak.",
+        "Aku minta maaf ya Kak atas kesalahanku kemarin",
+        "Nggak ada maksud buat bikin Kau marah",
+        "Semoga di maafin ya.",
+        "Sebagai tanda maaf, aku mau ngasih matcha",
         "Bantu aduk sebentar ya."
     ];
 
