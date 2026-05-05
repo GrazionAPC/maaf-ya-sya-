@@ -1,84 +1,88 @@
 document.addEventListener("DOMContentLoaded", function(){
 
-// AMBIL NAMA
 let params = new URLSearchParams(window.location.search);
 let nama = params.get("nama");
 
 if(nama){
   document.getElementById("title").innerText =
-    "Maafin Aku Ya " + nama + " 🥺";
+    "Maafin Aku Ya " + nama + ";
 
   document.getElementById("text").innerText =
-    "Hai " + nama + " 🧡 klik ini dulu yaa...";
+    "Hai " + nama + " 🧡 klik untuk lanjut...";
 }
 
-// MASUK
+/* MASUK */
 window.masuk = function(){
-  // stop loading sound
-  document.getElementById("loadingSound").pause();
 
-  // play main music
+  // STOP LOADING SOUND
+  document.getElementById("loadingSound").play();
+
+  // START MAIN MUSIC
   document.getElementById("bgm").play();
 
   document.getElementById("loading").style.display = "none";
   document.getElementById("main").style.display = "block";
 };
 
-// TEXT
+/* TEXT */
 let texts = [
   "Aku tau aku salah ",
-  "Aku gak bermaksud gitu ",
-  "Aku cuma pengen kita baikan lagi ",
-  "Aku kangen bercanda sama kamu ",
-  "Aku bikin ini khusus buat kamu "
+  "Aku gak bermaksud gitu",
+  "Aku cuma pengen kita baik lagi ",
+  "Aku kangen becanda dan main sama kamu ",
+  "Aku serius bikin ini buat minta maaf sama kamu "
 ];
 
-let index = 0;
+let i = 0;
 
 window.nextText = function(){
-  document.getElementById("text").innerText = texts[index];
+  document.getElementById("text").innerText = texts[i];
   document.getElementById("sound").play();
-  index++;
+  i++;
 
-  if(index >= texts.length){
+  if(i >= texts.length){
     document.getElementById("game").style.display = "block";
   }
 };
 
-// GAME MATCHA
+/* MATCHA GAME ULTIMATE */
 let progress = 0;
 
 window.clickMatcha = function(){
-  progress += 10;
+
+  progress += Math.floor(Math.random() * 15) + 5;
+
+  if(progress > 100) progress = 100;
 
   document.getElementById("progress").innerText = progress + "%";
+  document.getElementById("fill").style.width = progress + "%";
 
-  // animasi membesar
   document.getElementById("matcha").style.transform =
-    "scale(" + (1 + progress/150) + ")";
+    "scale(" + (1 + progress/180) + ")";
 
-  if(progress >= 100){
-    alert("Matcha spesial buat kamu selesai ");
+  if(progress === 100){
+    alert("🎉 MATCHA SUPER SPESIAL SELESAI!");
     document.getElementById("choice").style.display = "block";
   }
 };
 
-// YES → WA
+/* YES */
 window.yes = function(){
   let nomor = "628116502810";
   let text = "iya aku maafin ";
   let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(text);
+
   window.location.href = url;
 };
 
-// NO BUTTON
+/* NO BUTTON ULTIMATE */
 let size = 1;
 
 window.no = function(){
   let btn = document.getElementById("noBtn");
 
-  size -= 0.15;
-  if(size < 0.3) size = 0.3;
+  size -= 0.2;
+  if(size < 0.2) size = 0.2;
 
   btn.style.transform = "scale(" + size + ")";
   btn.style.position = "absolute";
@@ -88,14 +92,14 @@ window.no = function(){
   btn.innerText = "Jangan dong ";
 };
 
-// HATI JATUH
+/* HATI JATUH */
 setInterval(() => {
-  let heart = document.createElement("span");
-  heart.innerHTML = "🧡";
-  heart.style.left = Math.random() * 100 + "vw";
-  document.getElementById("hearts").appendChild(heart);
+  let h = document.createElement("span");
+  h.innerHTML = "🧡";
+  h.style.left = Math.random() * 100 + "vw";
+  document.getElementById("hearts").appendChild(h);
 
-  setTimeout(() => heart.remove(), 5000);
-}, 500);
+  setTimeout(() => h.remove(), 5000);
+}, 400);
 
 });
