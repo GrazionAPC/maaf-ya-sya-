@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nailong Maafin Aku </title>
+<title>Maafin Aku </title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,15 +11,15 @@
 <!-- LOADING -->
 <div id="loading">
   <img src="loading.gif">
-  <p id="loadText">Nailong lagi nyiapin sesuatu buat kamu 🧡</p>
+  <p>Nailong lagi nyiapin sesuatu 🧡</p>
+
   <button onclick="masuk()">Masuk 🧡</button>
 
-  <!-- SOUND LOADING (KICAU MANIA) -->
-  <audio id="loadingSound" src="backsound.mp3" autoplay loop></audio>
+  <audio id="loadingSound" src="backsound.mp3" loop></audio>
 </div>
 
 <!-- MAIN -->
-<div class="container" id="main" style="display:none;">
+<div class="container" id="main">
 
   <h1 id="title">Maafin Aku Ya </h1>
 
@@ -29,10 +29,9 @@
 
   <button onclick="nextText()">Mulai </button>
 
-  <!-- GAME -->
   <div id="game" style="display:none;">
-    <h2>🍵 Mini Game: Bikin Matcha Untuk Nailong</h2>
-    <p>⚡ Klik cepat saat bar hijau muncul!</p>
+    <h2>🍵 Game Matcha</h2>
+    <p>Klik bar hijau saat muncul!</p>
 
     <div id="barArea">
       <div id="bar"></div>
@@ -41,9 +40,8 @@
     <p id="score">Score: 0</p>
   </div>
 
-  <!-- CHOICE -->
   <div id="choice" style="display:none;">
-    <p id="finalText">Kamu mau maafin aku gak? </p>
+    <p>Kamu mau maafin aku? </p>
 
     <button onclick="yes()">Iya </button>
     <button onclick="no()" id="noBtn">Engga </button>
