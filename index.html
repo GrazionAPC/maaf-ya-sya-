@@ -3,253 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maafin Aku 🧡</title>
-    <style>
-        /* ===== CSS LANGSUNG DI SINI ===== */
-        :root {
-            --primary: #ff6600;
-            --bg: #fff9e6;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            text-align: center;
-            background-color: var(--bg);
-            overflow-x: hidden;
-        }
-
-        /* Layar Loading/Awal */
-        #loading {
-            position: fixed;
-            inset: 0;
-            background: linear-gradient(135deg, var(--primary) 0%, #ffffff 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
-        .box {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            width: 80%;
-            max-width: 300px;
-        }
-
-        /* Konten Utama */
-        #main {
-            display: none; /* Sembunyi sebelum tombol masuk diklik */
-            min-height: 100vh;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .nailong {
-            width: 200px;
-            margin: 20px 0;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        button {
-            padding: 15px 30px;
-            border: none;
-            background: var(--primary);
-            color: white;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
-            transition: 0.3s;
-            margin: 10px;
-        }
-
-        button:hover { transform: scale(1.05); }
-
-        /* Game Bar */
-        #barArea {
-            width: 100%;
-            max-width: 250px;
-            height: 25px;
-            background: #eee;
-            border-radius: 20px;
-            margin: 20px auto;
-            border: 3px solid var(--primary);
-            overflow: hidden;
-            position: relative;
-        }
-
-        #bar {
-            width: 0%;
-            height: 100%;
-            background: #ff4d4d;
-            transition: width 0.1s linear;
-        }
-
-        /* Hati Jatuh */
-        .heart {
-            position: fixed;
-            top: -20px;
-            font-size: 20px;
-            user-select: none;
-            pointer-events: none;
-            animation: fall 4s linear forwards;
-        }
-
-        @keyframes fall {
-            to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-        }
-    </style>
+    <title>Maafin Aku Ya.. 🧡</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="loading">
-        <div class="box">
-            <img src="loading.gif" alt="" style="width: 80px; margin-bottom: 10px;">
-            <p>Nailong nungguin kamu... 🧡</p>
-            <button id="btnMasuk">Masuk Sekarang</button>
+    <div id="layar-awal">
+        <div class="kartu-awal">
+            <img src="loading.gif" alt="" class="img-loading">
+            <p>Nailong sudah siap! ✨</p>
+            <button id="btn-masuk">Masuk 🧡</button>
         </div>
     </div>
 
-    <div id="main">
-        <h1 id="title">Maafin Aku 🥺</h1>
-        <img src="nailong.png" class="nailong">
-        <p id="text" style="font-size: 1.1rem; color: #444;">Klik tombol di bawah ya 🧡</p>
+    <div id="konten-utama" style="display: none;">
+        <h1 id="judul">Maafin Aku 🥺</h1>
+        <img src="nailong.png" class="gambar-nailong" alt="Nailong">
+        <p id="pesan-teks">Klik tombol di bawah ini...</p>
         
-        <button id="btnMulai">Mulai 😖</button>
+        <button id="btn-lanjut">Mulai 😖</button>
 
-        <div id="game" style="display:none;">
+        <div class="area-game" id="seksi-game" style="display: none;">
             <p>Klik saat warna jadi <b>HIJAU!</b></p>
-            <div id="barArea"><div id="bar"></div></div>
-            <p id="scoreText">Score: 0</p>
+            <div class="progress-bg" id="klik-area">
+                <div id="progress-bar"></div>
+            </div>
+            <p id="info-skor">Skor: 0</p>
         </div>
 
-        <div id="choice" style="display:none;">
-            <p style="font-size: 1.2rem;">Kamu mau maafin aku? 🥺</p>
-            <button id="btnYes">Iya 💖</button>
-            <button id="btnNo" style="background: #cc0000;">Engga 😡</button>
+        <div id="seksi-akhir" style="display: none;">
+            <p class="teks-akhir">Mau maafin aku kan? 🥺</p>
+            <div class="btn-group">
+                <button id="btn-iya">Iya, Maafin 💖</button>
+                <button id="btn-engga">Engga! 😡</button>
+            </div>
         </div>
     </div>
 
-    <audio id="music" src="sound.mp3" loop></audio>
+    <audio id="musik" src="sound.mp3" loop></audio>
+    <div id="wadah-hati"></div>
 
-    <script>
-        /* ===== JAVASCRIPT AMAN ===== */
-
-        const loadingScreen = document.getElementById('loading');
-        const mainScreen = document.getElementById('main');
-        const btnMasuk = document.getElementById('btnMasuk');
-        const btnMulai = document.getElementById('btnMulai');
-        const title = document.getElementById('title');
-        const text = document.getElementById('text');
-        const music = document.getElementById('music');
-
-        // Ambil nama dari URL (?nama=Nathasya)
-        const urlParams = new URLSearchParams(window.location.search);
-        const nama = urlParams.get('nama') || "Cantik";
-        title.innerText = "Maafin Aku Ya " + nama + " 🥺";
-
-        // 1. Fungsi Klik Masuk
-        btnMasuk.onclick = function() {
-            loadingScreen.style.display = 'none';
-            mainScreen.style.display = 'flex';
-            music.play().catch(() => console.log("Musik butuh klik tambahan"));
-            mulaiHati();
-        };
-
-        // 2. Logic Story
-        let step = 0;
-        const stories = [
-            "Aku sadar aku bikin kamu sedih.. 😔",
-            "Gak ada maksud buat kayak gitu..",
-            "Jangan dicuekin lagi ya? 🧡",
-            "Main game bentar yuk buat aku!"
-        ];
-
-        btnMulai.onclick = function() {
-            if (step < stories.length) {
-                text.innerText = stories[step];
-                step++;
-            } else {
-                btnMulai.style.display = 'none';
-                document.getElementById('game').style.display = 'block';
-                startMatchaGame();
-            }
-        };
-
-        // 3. Logic Game
-        let score = 0;
-        let isGreen = false;
-        function startMatchaGame() {
-            const bar = document.getElementById('bar');
-            const scoreText = document.getElementById('scoreText');
-
-            setInterval(() => {
-                let randomVal = Math.floor(Math.random() * 100);
-                bar.style.width = randomVal + "%";
-                if (randomVal > 70) {
-                    bar.style.background = "#4CAF50"; // Hijau
-                    isGreen = true;
-                } else {
-                    bar.style.background = "#ff4d4d"; // Merah
-                    isGreen = false;
-                }
-            }, 700);
-
-            document.getElementById('barArea').onclick = function() {
-                if (isGreen) {
-                    score += 25;
-                } else {
-                    score -= 10;
-                    if (score < 0) score = 0;
-                }
-                scoreText.innerText = "Score: " + score;
-                if (score >= 100) {
-                    document.getElementById('game').style.display = 'none';
-                    document.getElementById('choice').style.display = 'block';
-                }
-            };
-        }
-
-        // 4. Tombol Akhir
-        document.getElementById('btnYes').onclick = function() {
-            window.location.href = "https://wa.me/628116502810?text=Iya aku maafin kamu " + nama + " 🧡";
-        };
-
-        const btnNo = document.getElementById('btnNo');
-        btnNo.onmouseover = moveButton; // Buat PC
-        btnNo.onclick = moveButton;      // Buat HP
-
-        function moveButton() {
-            const x = Math.random() * (window.innerWidth - 100);
-            const y = Math.random() * (window.innerHeight - 50);
-            btnNo.style.position = 'fixed';
-            btnNo.style.left = x + 'px';
-            btnNo.style.top = y + 'px';
-        }
-
-        // 5. Efek Hati
-        function mulaiHati() {
-            setInterval(() => {
-                const h = document.createElement("div");
-                h.className = "heart";
-                h.innerHTML = "🧡";
-                h.style.left = Math.random() * 100 + "vw";
-                document.body.appendChild(h);
-                setTimeout(() => h.remove(), 4000);
-            }, 500);
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
