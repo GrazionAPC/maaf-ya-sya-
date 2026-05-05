@@ -11,27 +11,22 @@ if (nama) {
     "Hai " + nama + " 🧡 klik mulai ya...";
 }
 
-/* =========================
-   MASUK BUTTON
-========================= */
+/* ===== MASUK (NO BUG AUDIO) ===== */
 window.masuk = function () {
   document.getElementById("loading").style.display = "none";
   document.getElementById("main").style.display = "block";
 
-  // PLAY MUSIC UTAMA
   let bgm = document.getElementById("bgm");
   bgm.play().catch(() => {});
 };
 
-/* =========================
-   STORY TEXT + SOUND
-========================= */
+/* ===== STORY ===== */
 let texts = [
-  "Aku tau aku salah, maaf ya",
-  "Aku gak bermaksud gitu",
-  "Aku cuma pengen kita baikan lagi",
-  "Aku kangen ngobrol, bercanda, dan main sama kamu",
-  "Aku bikin ini khusus buat kamu"
+  "Aku tau aku salah, maaf ya ",
+  "Aku gak bermaksud gitu ",
+  "Aku cuma pengen kita baikan lagi ",
+  "Aku kangen ngobrol, becanda, dan main sama kamu ",
+  "Aku bikin ini khusus buat kamu "
 ];
 
 let i = 0;
@@ -39,7 +34,6 @@ let i = 0;
 window.nextText = function () {
   document.getElementById("text").innerText = texts[i];
 
-  // SOUND EFFECT
   let sfx = document.getElementById("sound");
   sfx.currentTime = 0;
   sfx.play();
@@ -51,13 +45,10 @@ window.nextText = function () {
   }
 };
 
-/* =========================
-   MINI GAME MATCHA (REFLEX)
-========================= */
+/* ===== GAME ===== */
 let score = 0;
 let active = false;
 
-// random bar muncul
 setInterval(() => {
   let bar = document.getElementById("bar");
   let val = Math.floor(Math.random() * 100);
@@ -65,14 +56,11 @@ setInterval(() => {
   bar.style.width = val + "%";
   active = true;
 
-  setTimeout(() => {
-    active = false;
-  }, 600);
+  setTimeout(() => active = false, 600);
 
 }, 1100);
 
-/* klik bar */
-window.clickMatcha = function () {
+document.getElementById("barArea").onclick = function () {
   if (active) {
     score += 10;
   } else {
@@ -84,24 +72,19 @@ window.clickMatcha = function () {
 
   if (score >= 100) {
     document.getElementById("choice").style.display = "block";
-    alert("Matcha berhasil dibuat sempurna 🧡");
+    alert("Matcha selesai ");
   }
 };
 
-/* =========================
-   YES (WHATSAPP)
-========================= */
+/* ===== YES ===== */
 window.yes = function () {
-  let nomor = "628116502810"; // ganti kalau perlu
-  let text = "iya aku maafin";
+  let nomor = "628116502810";
 
   window.location.href =
-    "https://wa.me/" + nomor + "?text=" + encodeURIComponent(text);
+    "https://wa.me/" + nomor + "?text=" + encodeURIComponent("iya aku maafin ");
 };
 
-/* =========================
-   NO BUTTON (KABUR + KECIL)
-========================= */
+/* ===== NO ===== */
 let size = 1;
 
 window.no = function () {
@@ -114,13 +97,9 @@ window.no = function () {
   btn.style.position = "absolute";
   btn.style.top = Math.random() * 500 + "px";
   btn.style.left = Math.random() * 300 + "px";
-
-  btn.innerText = "Jangan dong";
 };
 
-/* =========================
-   HEART EFFECT
-========================= */
+/* ===== HEART ===== */
 setInterval(() => {
   let h = document.createElement("span");
   h.innerHTML = "🧡";
