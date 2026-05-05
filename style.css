@@ -1,120 +1,98 @@
-* {
-    box-sizing: border-box;
+:root {
+    --warna-utama: #ff7b00;
+    --warna-bg: #fffcf2;
 }
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    background-color: #fff;
-    overflow-x: hidden;
-}
-
-/* ===== LOADING ===== */
-#loading {
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(135deg, #ff9d00 0%, #ffffff 100%);
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--warna-bg);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
-}
-
-.loadingBox {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.loadingGif {
-    width: 120px;
-    margin-bottom: 15px;
-}
-
-/* ===== MAIN CONTAINER ===== */
-.container {
     min-height: 100vh;
-    padding: 40px 20px;
-    background: repeating-linear-gradient(
-        45deg,
-        #fff9e6,
-        #fff9e6 30px,
-        #ffffff 30px,
-        #ffffff 60px
-    );
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    overflow-x: hidden;
 }
 
-.nailong {
-    width: 200px;
-    max-width: 80%;
-    transition: transform 0.3s;
-}
-
-.nailong:hover {
-    transform: scale(1.1);
-}
-
-/* ===== BUTTONS ===== */
-button {
-    padding: 12px 25px;
-    margin: 10px;
-    border: none;
-    background: #ff6600;
-    color: white;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
-    transition: 0.2s;
-}
-
-button:active {
-    transform: scale(0.95);
-}
-
-/* ===== GAME ===== */
-#barArea {
-    width: 250px;
-    height: 30px;
-    background: #eee;
-    border-radius: 15px;
-    overflow: hidden;
-    margin: 20px auto;
-    border: 3px solid #ff6600;
-    cursor: crosshair;
-}
-
-#bar {
-    width: 0%;
-    height: 100%;
-    background: #4CAF50;
-    transition: width 0.1s linear;
-}
-
-/* ===== ANIMASI HATI ===== */
-#hearts span {
+#layar-awal {
     position: fixed;
-    top: -20px;
-    font-size: 24px;
-    user-select: none;
-    pointer-events: none;
-    animation: fall 4s linear forwards;
+    inset: 0;
+    background: linear-gradient(135deg, var(--warna-utama), #ffffff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 1000;
 }
 
-@keyframes fall {
-    to {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-    }
+.kartu-awal {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 80%;
+    max-width: 300px;
 }
 
-.btn-no {
-    background: #cc0000;
+.img-loading { width: 80px; margin-bottom: 10px; }
+
+#konten-utama {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
 }
+
+.gambar-nailong {
+    width: 200px;
+    margin: 20px 0;
+    animation: apung 3s ease-in-out infinite;
+}
+
+@keyframes apung {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    background: var(--warna-utama);
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 5px;
+}
+
+button:active { transform: scale(0.9); }
+
+.area-game { width: 100%; max-width: 250px; margin-top: 20px; }
+
+.progress-bg {
+    width: 100%;
+    height: 25px;
+    background: #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #333;
+}
+
+#progress-bar { width: 0%; height: 100%; background: #ff4d4d; }
+
+.hati {
+    position: fixed;
+    top: -20px;
+    font-size: 20px;
+    animation: jatuh 4s linear forwards;
+    z-index: 500;
+}
+
+@keyframes jatuh {
+    to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+#btn-engga { background-color: #d90429; }
