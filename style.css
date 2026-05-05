@@ -4,7 +4,7 @@ body {
   text-align: center;
 }
 
-/* ===== LOADING SCREEN ===== */
+/* ===== LOADING ===== */
 #loading {
   position: fixed;
   inset: 0;
@@ -19,28 +19,34 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 18px;
 }
 
-/* GIF diperkecil supaya tidak ganggu klik */
+/* GIF diperkecil tapi masih jelas (tidak terlalu kecil) */
 .loadingGif {
-  width: 120px;
+  width: 150px;   /* ini ukuran aman */
   height: auto;
   pointer-events: none;
 }
 
-/* tombol pasti bisa diklik */
-.loadingBox button {
+/* tombol dibuat jauh dari gambar */
+.btnBox {
+  margin-top: 25px;
+}
+
+/* tombol dipastikan bisa diklik */
+.btnBox button {
   padding: 14px 24px;
   background: #ff6600;
   color: white;
   border: none;
   border-radius: 12px;
   font-size: 16px;
+  position: relative;
   z-index: 100000;
 }
 
-/* ===== MAIN BACKGROUND STRIPES (LURUS) ===== */
+/* ===== MAIN BACKGROUND STRIPE ===== */
 .container {
   min-height: 100vh;
   padding: 20px;
@@ -51,6 +57,7 @@ body {
     white 25px,
     white 50px
   );
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,16 +66,10 @@ body {
 /* ===== GAMBAR ===== */
 .nailong {
   width: 260px;
-  display: block;
-  margin: auto;
+  margin-top: 10px;
   animation: shake 1s infinite;
 }
 
-#matcha {
-  width: 160px;
-}
-
-/* shake anim */
 @keyframes shake {
   0% { transform: rotate(0); }
   50% { transform: rotate(4deg); }
@@ -102,7 +103,7 @@ button {
   background: limegreen;
 }
 
-/* ===== HEART ANIMATION ===== */
+/* ===== HEART ===== */
 #hearts span {
   position: fixed;
   top: -10px;
@@ -114,9 +115,4 @@ button {
   to {
     transform: translateY(100vh);
   }
-}
-
-/* pastikan tidak ada yang blok klik */
-#loading, #loading * {
-  pointer-events: auto;
 }
