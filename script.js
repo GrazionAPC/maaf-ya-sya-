@@ -8,25 +8,22 @@ if (nama) {
     "Maafin Aku Ya " + nama ";
 
   document.getElementById("text").innerText =
-    "Hai " + nama + " 🧡 klik mulai ya...";
+    "Hai " + nama + " klik mulai ya...";
 }
 
-/* ===== MASUK (NO BUG AUDIO) ===== */
+/* ===== MASUK (AMAN 100%) ===== */
 window.masuk = function () {
   document.getElementById("loading").style.display = "none";
   document.getElementById("main").style.display = "block";
-
-  let bgm = document.getElementById("bgm");
-  bgm.play().catch(() => {});
 };
 
 /* ===== STORY ===== */
 let texts = [
-  "Aku tau aku salah, maaf ya ",
-  "Aku gak bermaksud gitu ",
-  "Aku cuma pengen kita baikan lagi ",
-  "Aku kangen ngobrol, becanda, dan main sama kamu ",
-  "Aku bikin ini khusus buat kamu "
+  "Aku tau aku salah, maaf ya",
+  "Aku gak bermaksud gitu",
+  "Aku cuma pengen kita baikan lagi",
+  "Aku rindu becanda, ngobrol, dan main sama kamu",
+  "Aku bikin ini khusus buat kamu"
 ];
 
 let i = 0;
@@ -34,9 +31,10 @@ let i = 0;
 window.nextText = function () {
   document.getElementById("text").innerText = texts[i];
 
+  // sound tetap ada
   let sfx = document.getElementById("sound");
   sfx.currentTime = 0;
-  sfx.play();
+  sfx.play().catch(()=>{});
 
   i++;
 
@@ -72,7 +70,7 @@ document.getElementById("barArea").onclick = function () {
 
   if (score >= 100) {
     document.getElementById("choice").style.display = "block";
-    alert("Matcha selesai ");
+    alert("Matcha selesai 🧡");
   }
 };
 
@@ -81,7 +79,7 @@ window.yes = function () {
   let nomor = "628116502810";
 
   window.location.href =
-    "https://wa.me/" + nomor + "?text=" + encodeURIComponent("iya aku maafin ");
+    "https://wa.me/" + nomor + "?text=" + encodeURIComponent("iya aku maafin 🧡");
 };
 
 /* ===== NO ===== */
