@@ -4,7 +4,7 @@ body {
   text-align: center;
 }
 
-/* LOADING */
+/* ===== LOADING SCREEN ===== */
 #loading {
   position: fixed;
   inset: 0;
@@ -15,22 +15,21 @@ body {
   z-index: 99999;
 }
 
-/* BOX AMAN */
 .loadingBox {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  z-index: 100000;
 }
 
-/* KECILKAN GIF BIAR TIDAK NUTUP BUTTON */
+/* GIF diperkecil supaya tidak ganggu klik */
 .loadingGif {
-  width: 120px;   /* ini yang bikin aman */
+  width: 120px;
+  height: auto;
   pointer-events: none;
 }
 
-/* BUTTON HARUS PASTI KENA CLICK */
+/* tombol pasti bisa diklik */
 .loadingBox button {
   padding: 14px 24px;
   background: #ff6600;
@@ -38,21 +37,13 @@ body {
   border: none;
   border-radius: 12px;
   font-size: 16px;
-  z-index: 100001;
-  pointer-events: auto;
+  z-index: 100000;
 }
 
-/* PENTING: JANGAN ADA YANG BLOCK CLICK */
-#loading, #loading * {
-  pointer-events: auto;
-}
-
-/* MAIN */
+/* ===== MAIN BACKGROUND STRIPES (LURUS) ===== */
 .container {
   min-height: 100vh;
   padding: 20px;
-
-  /* STRIPE BACKGROUND */
   background: repeating-linear-gradient(
     90deg,
     orange,
@@ -60,21 +51,31 @@ body {
     white 25px,
     white 50px
   );
-
-  display: flex;          /* FIX CENTER */
+  display: flex;
   flex-direction: column;
-  align-items: center;    /* FIX CENTER */
-  justify-content: center;
+  align-items: center;
 }
 
-/* GAMBAR CENTER */
+/* ===== GAMBAR ===== */
 .nailong {
   width: 260px;
   display: block;
-  margin: 0 auto;
+  margin: auto;
+  animation: shake 1s infinite;
 }
 
-/* BUTTON */
+#matcha {
+  width: 160px;
+}
+
+/* shake anim */
+@keyframes shake {
+  0% { transform: rotate(0); }
+  50% { transform: rotate(4deg); }
+  100% { transform: rotate(-4deg); }
+}
+
+/* ===== BUTTON ===== */
 button {
   padding: 12px 20px;
   margin: 10px;
@@ -85,7 +86,7 @@ button {
   font-size: 16px;
 }
 
-/* GAME BAR */
+/* ===== GAME BAR ===== */
 #barArea {
   width: 80%;
   height: 25px;
@@ -101,7 +102,7 @@ button {
   background: limegreen;
 }
 
-/* HEART */
+/* ===== HEART ANIMATION ===== */
 #hearts span {
   position: fixed;
   top: -10px;
@@ -115,49 +116,7 @@ button {
   }
 }
 
-button {
-  pointer-events: auto;
-}
-
-img {
-  pointer-events: none;
-}
-
-/* FIX TOTAL OVERLAY CLICK ISSUE */
-#loading {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(90deg, orange 50%, white 50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
-}
-
-/* BOX BIAR ELEMENT TIDAK NUTUP BUTTON */
-.loadingBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  z-index: 100000;
-}
-
-.loadingBox img {
-  width: 180px;
-}
-
-.loadingBox button {
-  padding: 14px 24px;
-  background: #ff6600;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  z-index: 100001;
-}
-
-/* PENTING: MATIKAN SEMUA BLOCK CLICK */
+/* pastikan tidak ada yang blok klik */
 #loading, #loading * {
   pointer-events: auto;
 }
